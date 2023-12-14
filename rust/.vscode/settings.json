@@ -1,0 +1,13 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./ploy_eval/Cargo.toml"
+    ],
+    "cSpell.words": [
+        "vaddq",
+        "vmlaq",
+        "vmovq",
+        "vmul",
+        "vmulq",
+        "vsubq"
+    ]
+}
