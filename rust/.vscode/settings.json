@@ -3,6 +3,9 @@
         "./ploy_eval/Cargo.toml"
     ],
     "cSpell.words": [
+        "loadu",
+        "stdsimd",
+        "storeu",
         "vaddq",
         "vmlaq",
         "vmovq",
