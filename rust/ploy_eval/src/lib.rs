@@ -1,5 +1,5 @@
-#![feature(stdsimd)]
-#![feature(avx512_target_feature)]
+//#![feature(stdsimd)]
+//#![feature(avx512_target_feature)]
 
 mod aarch64_neon;
 mod poly_eval;
