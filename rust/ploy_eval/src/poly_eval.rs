@@ -111,17 +111,15 @@ pub(crate) fn poly_eval_simd(c: &Vec<f64>, x: &Vec<f64>, b: Option<&Vec<f64>>) -
     let mut result: Vec<f64> = vec![0.0; x.len()];
     #[cfg(target_arch = "aarch64")]
     {
-        use std::arch::aarch64::*;
-        neon_eval(x, c, base, &mut result);
+        use crate::aarch64_neon::neon_eval;
+        unsafe {
+            neon_eval(x, c, base, &mut result);
+        }
     }
-
-    #[cfg(target_arch = "x86")]
-    use std::arch::x86::float64x2x4_t;
-
-    use crate::x86_64::avx2_eval;
 
     #[cfg(target_arch = "x86_64")]
     {
+        use crate::x86_64::avx2_eval;
         use crate::x86_64::avx512_eval;
         use crate::x86_64::sse2_eval;
         unsafe {
@@ -131,6 +129,18 @@ pub(crate) fn poly_eval_simd(c: &Vec<f64>, x: &Vec<f64>, b: Option<&Vec<f64>>) -
                 avx2_eval(x, c, base, &mut result);
             } else if is_x86_feature_detected!("sse3") {
                 sse2_eval(x, c, base, &mut result);
+            }
+        }
+    }
+
+    #[cfg(target_arch = "x86")]
+    {
+        use crate::x86::sse2_eval;
+        unsafe {
+            if is_x86_feature_detected!("sse3") {
+                sse2_eval(x, c, base, &mut result);
+            } else {
+                ploy_eval_no_simd(x, c, base, &mut result);
             }
         }
     }

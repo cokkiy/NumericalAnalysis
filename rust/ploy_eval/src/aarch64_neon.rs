@@ -1,5 +1,8 @@
 #[cfg(target_arch = "aarch64")]
-pub(crate) fn neon_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result: &mut Vec<f64>) {
+#[inline]
+pub(crate) unsafe fn neon_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result: &mut Vec<f64>) {
+    use std::arch::aarch64::*;
+
     for i in (0..x.len()).step_by(8) {
         // load 8 x to reg
         let x_ix8 = vld1q_f64_x4(x.as_ptr().add(i));
