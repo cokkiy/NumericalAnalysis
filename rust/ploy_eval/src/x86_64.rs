@@ -1,5 +1,6 @@
-#[cfg(all(target_arch = "x86_64", target_feature = "sse2"))]
+#[cfg(any(target_arch = "x86_64", target_arch = "x86"))]
 #[target_feature(enable = "sse3")]
+#[inline]
 pub(crate) unsafe fn sse2_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result: &mut Vec<f64>) {
     use std::arch::x86_64::*;
 
@@ -28,6 +29,7 @@ pub(crate) unsafe fn sse2_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result
 
 #[cfg(all(target_arch = "x86_64"))]
 #[target_feature(enable = "avx2")]
+#[inline]
 pub(crate) unsafe fn avx2_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result: &mut Vec<f64>) {
     use std::arch::x86_64::*;
 
@@ -58,6 +60,7 @@ pub(crate) unsafe fn avx2_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result
 
 #[cfg(all(target_arch = "x86_64"))]
 #[target_feature(enable = "avx512f")]
+#[inline]
 pub(crate) unsafe fn avx512_eval(x: &Vec<f64>, c: Vec<f64>, base: Vec<f64>, result: &mut Vec<f64>) {
     use std::arch::x86_64::*;
 
