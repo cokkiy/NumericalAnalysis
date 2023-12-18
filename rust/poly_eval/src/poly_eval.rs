@@ -21,7 +21,7 @@
 # 示例
 
 ```
-use ploy_eval::poly_eval;
+use poly_eval::poly_eval;
 let mut c = vec![1.0, 2.0, 3.0]; // 多项式系数为 [1.0, 2.0, 3.0]
 let x = vec![1.0, 2.0, 3.0]; // 自变量值为 [1.0, 2.0, 3.0]
 let result = poly_eval(&c, &x, None); // 计算多项式的值
