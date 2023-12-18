@@ -1,6 +1,6 @@
 {
     "rust-analyzer.linkedProjects": [
-        "./rust/ploy_eval/Cargo.toml"
+        "./rust/poly_eval/Cargo.toml"
     ],
     "cSpell.words": [
         "broadcastsd",

@@ -1,6 +1,6 @@
 {
     "rust-analyzer.linkedProjects": [
-        "./ploy_eval/Cargo.toml"
+        "./poly_eval/Cargo.toml"
     ],
     "cSpell.words": [
         "loadu",
