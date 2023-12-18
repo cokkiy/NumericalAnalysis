@@ -1,0 +1,17 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "./rust/ploy_eval/Cargo.toml"
+    ],
+    "cSpell.words": [
+        "broadcastsd",
+        "loaddup",
+        "loadu",
+        "setzero",
+        "stdsimd",
+        "storeu",
+        "vaddq",
+        "vmovq",
+        "vmulq",
+        "vsubq"
+    ],
+}
