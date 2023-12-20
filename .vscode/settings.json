@@ -1,11 +1,14 @@
 {
     "rust-analyzer.linkedProjects": [
-        "./rust/poly_eval/Cargo.toml"
+        "./rust/poly_eval/Cargo.toml",
+        "./rust/equation_solver/Cargo.toml",
     ],
     "cSpell.words": [
         "broadcastsd",
+        "cosx",
         "loaddup",
         "loadu",
+        "powi",
         "setzero",
         "stdsimd",
         "storeu",
